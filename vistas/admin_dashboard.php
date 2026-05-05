@@ -18,15 +18,22 @@ $stmt_prop_list = $conn->prepare("SELECT * FROM propiedad ORDER BY id DESC");
 $stmt_prop_list->execute();
 $lista_propiedades = $stmt_prop_list->fetchAll(PDO::FETCH_ASSOC);
 $total_propiedades = count($lista_propiedades);
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 34771b1bf1d19a94915ec6fe3529ce3f1fb09086
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Domu - Panel de Administración</title>
+=======
+    <title>InmoPro - Panel de Administración</title>
+>>>>>>> 34771b1bf1d19a94915ec6fe3529ce3f1fb09086
     <script src="https://cdn.tailwindcss.com"></script>
     
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -43,7 +50,11 @@ $total_propiedades = count($lista_propiedades);
         <div class="p-6 border-b border-gray-800">
             <h1 class="font-bold text-2xl text-white flex items-center gap-2">
                 <svg class="w-6 h-6 text-[#6366f1]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+<<<<<<< HEAD
                 Domu<span class="text-[#6366f1]">Admin</span>
+=======
+                Inmo<span class="text-[#6366f1]">Admin</span>
+>>>>>>> 34771b1bf1d19a94915ec6fe3529ce3f1fb09086
             </h1>
         </div>
         
@@ -57,10 +68,13 @@ $total_propiedades = count($lista_propiedades);
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                 Nueva Propiedad
             </button>
+<<<<<<< HEAD
             <a href="admin_usuarios.php" class="flex items-center gap-3 hover:bg-gray-800 hover:text-white px-4 py-3 rounded-xl transition">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path></path></svg>
                 Usuarios
             </a>
+=======
+>>>>>>> 34771b1bf1d19a94915ec6fe3529ce3f1fb09086
 
             <a href="admin_usuarios_pendientes.php" class="flex items-center gap-3 hover:bg-gray-800 hover:text-white px-4 py-3 rounded-xl transition">
                 <svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -86,6 +100,7 @@ $total_propiedades = count($lista_propiedades);
 
         <div class="p-8 flex-1 overflow-y-auto">
             
+<<<<<<< HEAD
             <?php if(isset($_GET['mensaje'])): ?>
                 <?php if($_GET['mensaje'] == 'propiedad_guardada'): ?>
                     <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-xl mb-6 flex justify-between items-center">
@@ -103,6 +118,13 @@ $total_propiedades = count($lista_propiedades);
                         <button onclick="this.parentElement.remove()" class="text-red-700 font-bold">&times;</button>
                     </div>
                 <?php endif; ?>
+=======
+            <?php if(isset($_GET['mensaje']) && $_GET['mensaje'] == 'propiedad_guardada'): ?>
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-xl mb-6 flex justify-between items-center">
+                    <span class="font-bold">¡Éxito! Propiedad guardada correctamente.</span>
+                    <button onclick="this.parentElement.remove()" class="text-green-700 font-bold">&times;</button>
+                </div>
+>>>>>>> 34771b1bf1d19a94915ec6fe3529ce3f1fb09086
             <?php endif; ?>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -143,6 +165,7 @@ $total_propiedades = count($lista_propiedades);
                                 </td>
                                 <td class="p-4 font-medium text-gray-700">$<?php echo number_format($prop['precio'], 2); ?></td>
                                 <td class="p-4">
+<<<<<<< HEAD
                                     <?php 
                                         $clase_estado = 'bg-gray-100 text-gray-600';
                                         if (strtolower($prop['estado']) == 'disponible') $clase_estado = 'bg-green-100 text-green-700';
@@ -178,6 +201,16 @@ $total_propiedades = count($lista_propiedades);
                     <a href="../apis/api_eliminar_propiedad.php?id=<?php echo $prop['id']; ?>" onclick="return confirm('¿Seguro que quieres borrar esta propiedad?')" class="text-red-500 hover:text-red-700 font-bold">Borrar</a>
                  </div>
                 </td>
+=======
+                                    <span class="px-2 py-1 rounded-full text-[10px] font-bold uppercase <?php echo ($prop['estado'] == 'Disponible') ? 'bg-green-100 text-green-600' : 'bg-orange-100 text-orange-600'; ?>">
+                                        <?php echo htmlspecialchars($prop['estado']); ?>
+                                    </span>
+                                </td>
+                                <td class="p-4 text-center">
+                                    <button class="text-indigo-600 hover:text-indigo-900 font-bold mr-3">Editar</button>
+                                    <a href="../apis/api_eliminar_propiedad.php?id=<?php echo $prop['id']; ?>" onclick="return confirm('¿Seguro que quieres borrar esta propiedad?')" class="text-red-500 hover:text-red-700 font-bold">Borrar</a>
+                                </td>
+>>>>>>> 34771b1bf1d19a94915ec6fe3529ce3f1fb09086
                             </tr>
                             <?php endforeach; ?>
                             <?php if(empty($lista_propiedades)): ?>

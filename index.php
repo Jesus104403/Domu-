@@ -7,10 +7,16 @@ $logeado = isset($_SESSION['usuario_id']);
 $nombre_usuario = $logeado ? $_SESSION['nombre'] : '';
 $rol_usuario = $logeado ? $_SESSION['rol_id'] : null;
 
+<<<<<<< HEAD
 // 2. Consultar las propiedades reales de la base de datos (SOLO DISPONIBLES)
 try {
     // Agregamos WHERE LOWER(estado) = 'disponible' para filtrar
     $stmt = $conn->prepare("SELECT * FROM propiedad WHERE LOWER(estado) = 'disponible' ORDER BY id DESC");
+=======
+// 2. Consultar las propiedades reales de la base de datos
+try {
+    $stmt = $conn->prepare("SELECT * FROM propiedad ORDER BY id DESC");
+>>>>>>> 34771b1bf1d19a94915ec6fe3529ce3f1fb09086
     $stmt->execute();
     $propiedades = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch(PDOException $e) {
@@ -22,7 +28,11 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Domu - Encuentra tu hogar ideal</title>
+=======
+    <title>InmoPro - Encuentra tu hogar ideal</title>
+>>>>>>> 34771b1bf1d19a94915ec6fe3529ce3f1fb09086
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #f3f4f6; } 
@@ -40,7 +50,11 @@ try {
     <header class="bg-[#111827] text-white py-4 px-6 md:px-10 flex justify-between items-center shadow-lg sticky top-0 z-50">
         <div class="font-bold text-2xl text-white flex items-center gap-2">
             <svg class="w-8 h-8 text-[#6366f1]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+<<<<<<< HEAD
             Domu
+=======
+            InmoPro
+>>>>>>> 34771b1bf1d19a94915ec6fe3529ce3f1fb09086
         </div>
         
         <div class="flex items-center gap-4">
@@ -51,11 +65,14 @@ try {
                     <a href="vistas/admin_dashboard.php" class="bg-gray-800 hover:bg-gray-700 text-white text-sm font-semibold py-2 px-4 rounded-lg transition">Panel Admin</a>
                 <?php endif; ?>
 
+<<<<<<< HEAD
                 <?php if($rol_usuario == 2): ?>
                     <a href="vistas/agente_dashboard.php" class="bg-gray-800 hover:bg-gray-700 text-white text-sm font-semibold py-2 px-4 rounded-lg transition">Panel Agente</a>
                 <?php endif; ?>
 
 
+=======
+>>>>>>> 34771b1bf1d19a94915ec6fe3529ce3f1fb09086
                 <a href="apis/api_logout.php" class="bg-red-500 hover:bg-red-600 text-white text-sm font-semibold py-2 px-4 rounded-lg transition">Salir</a>
                 <img src="https://ui-avatars.com/api/?name=<?php echo urlencode($nombre_usuario); ?>&background=6366f1&color=fff" class="h-10 w-10 rounded-full border-2 border-[#6366f1]" alt="Avatar">
             <?php else: ?>
@@ -74,7 +91,11 @@ try {
         
         <div class="flex justify-between items-end mb-10 border-b border-gray-300 pb-4">
             <h2 class="text-3xl font-bold text-gray-900">Propiedades Destacadas</h2>
+<<<<<<< HEAD
             <span class="text-[#6366f1] font-semibold cursor-pointer hover:text-[#4f46e5] transition">Ver todas →</span>
+=======
+            <span class="text-[#6366f1] font-semibold cursor-pointer hover:text-[#4f46e5] transition">Ver todas &rarr;</span>
+>>>>>>> 34771b1bf1d19a94915ec6fe3529ce3f1fb09086
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -90,7 +111,11 @@ try {
                         ?>
                         <img src="<?php echo $foto_url; ?>" class="w-full h-full object-cover" alt="<?php echo htmlspecialchars($p['titulo']); ?>">
                         
+<<<<<<< HEAD
                         <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow uppercase">
+=======
+                        <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-gray-900 shadow capitalize">
+>>>>>>> 34771b1bf1d19a94915ec6fe3529ce3f1fb09086
                             <?php echo htmlspecialchars($p['estado']); ?>
                         </div>
                         
@@ -130,7 +155,11 @@ try {
                 <?php endforeach; ?>
             <?php else: ?>
                 <div class="col-span-full text-center py-20">
+<<<<<<< HEAD
                     <p class="text-gray-400 text-xl">Actualmente no hay propiedades disponibles. ¡Vuelve pronto!</p>
+=======
+                    <p class="text-gray-400 text-xl">No hay propiedades publicadas todavía.</p>
+>>>>>>> 34771b1bf1d19a94915ec6fe3529ce3f1fb09086
                 </div>
             <?php endif; ?>
 
@@ -138,7 +167,11 @@ try {
     </main>
 
     <footer class="bg-gray-900 text-gray-400 py-6 text-center text-sm mt-auto">
+<<<<<<< HEAD
         <p>© 2026 Domu. Todos los derechos reservados.</p>
+=======
+        <p>&copy; 2026 InmoPro. Todos los derechos reservados.</p>
+>>>>>>> 34771b1bf1d19a94915ec6fe3529ce3f1fb09086
     </footer>
 
 </body>

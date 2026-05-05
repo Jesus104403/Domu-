@@ -11,7 +11,11 @@ if(isset($_SESSION['usuario_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Domu - Iniciar Sesión</title>
+=======
+    <title>InmoPro - Iniciar Sesión</title>
+>>>>>>> 34771b1bf1d19a94915ec6fe3529ce3f1fb09086
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .bg-login-signup { background-image: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.8)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80'); background-size: cover; background-position: center; }

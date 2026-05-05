@@ -26,7 +26,11 @@ $usuarios_pendientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="p-6 border-b border-gray-800">
             <h1 class="font-bold text-2xl text-white flex items-center gap-2">
                 <svg class="w-6 h-6 text-[#6366f1]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+<<<<<<< HEAD
                 Domu<span class="text-[#6366f1]">Admin</span>
+=======
+                Inmo<span class="text-[#6366f1]">Admin</span>
+>>>>>>> 34771b1bf1d19a94915ec6fe3529ce3f1fb09086
             </h1>
         </div>
         
@@ -105,11 +109,18 @@ $usuarios_pendientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </div>
 
                         <div class="flex gap-3 mt-auto pt-4 border-t border-gray-100">
+<<<<<<< HEAD
                             <button onclick="cambiarEstado(<?php echo $user['id']; ?>, 'aprobado')" 
                                class="flex-1 bg-green-500 hover:bg-green-600 text-white text-center py-2.5 rounded-xl font-bold transition text-sm shadow-md shadow-green-200">
                                 Aprobar
                             </button>
                             
+=======
+                            <a href="../apis/api_estado_usuario.php?id=<?php echo $user['id']; ?>&estado=aprobado" 
+                               class="flex-1 bg-green-500 hover:bg-green-600 text-white text-center py-2.5 rounded-xl font-bold transition text-sm shadow-md shadow-green-200">
+                                Aprobar
+                            </a>
+>>>>>>> 34771b1bf1d19a94915ec6fe3529ce3f1fb09086
                             <a href="../apis/api_eliminar_usuario.php?id=<?php echo $user['id']; ?>" 
                                onclick="return confirm('¿Rechazar a este usuario? Sus datos se borrarán del sistema.')" 
                                class="flex-1 bg-red-50 hover:bg-red-100 text-red-600 text-center py-2.5 rounded-xl font-bold transition text-sm">
@@ -125,6 +136,7 @@ $usuarios_pendientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </main>
 
+<<<<<<< HEAD
     <script>
         async function cambiarEstado(idUsuario, estado) {
             // Creamos el FormData para mandar los datos por POST
@@ -156,5 +168,7 @@ $usuarios_pendientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
             }
         }
     </script>
+=======
+>>>>>>> 34771b1bf1d19a94915ec6fe3529ce3f1fb09086
 </body>
 </html>
